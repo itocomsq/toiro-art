@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>商品詳細 | toiro art.</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <img src="assets/img/logo.png" alt="toiro art. ロゴ" />
+      toiro art.
+    </a>
+    <div class="search-box">
+      <form class="search-form" action="search.html" method="get">
+        <input type="text" name="q" class="search-field" placeholder="タグで検索（例: バッグ）" autocomplete="off" />
+        <button type="submit">検索</button>
+      </form>
+      <ul class="search-suggest" hidden></ul>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="breadcrumb"><a href="index.html">TOP</a> &rsaquo; 商品詳細</p>
+  <div class="product-detail" id="product-detail">
+    <!-- js/product.js が挿入 -->
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="sns-links">
+      <a href="https://www.instagram.com/toiro.nemui/" target="_blank" rel="noopener">Instagram @toiro.nemui</a>
+    </div>
+    <p class="copyright">&copy; 2026 toiro art.</p>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>toiro art. | 革細工工房</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <img src="assets/img/logo.png" alt="toiro art. ロゴ" />
+      toiro art.
+    </a>
+    <div class="search-box">
+      <form class="search-form" action="search.html" method="get">
+        <input type="text" name="q" class="search-field" placeholder="タグで検索（例: バッグ）" autocomplete="off" />
+        <button type="submit">検索</button>
+      </form>
+      <ul class="search-suggest" hidden></ul>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-viewport" id="hero-viewport">
+    <!-- スライドは js/home.js が挿入 -->
+  </div>
+  <div class="hero-dots" id="hero-dots"></div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <img src="assets/img/logo.png" alt="作家アイコン" />
+    <div>
+      <h2>作家紹介</h2>
+      <p>
+        革と向き合う時間が好きで、少しずつ作品を作っています。植物タンニンなめしの革を中心に、
+        使うほどに味わいが増える道具を、一つひとつ手作業で仕立てています。
+        ものづくりの様子は Instagram（@toiro.nemui）にて発信していますので、気軽にご覧ください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<h2 class="section-title wrap">PRODUCTS</h2>
+<div id="genre-sections">
+  <!-- ジャンルごとの商品行は js/home.js が挿入 -->
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="sns-links">
+      <a href="https://www.instagram.com/toiro.nemui/" target="_blank" rel="noopener">Instagram @toiro.nemui</a>
+    </div>
+    <p class="copyright">&copy; 2026 toiro art.</p>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

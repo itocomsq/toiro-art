@@ -474,16 +474,16 @@ button {
 }
 
 .detail-gallery .main-image {
+  aspect-ratio: 1 / 1;
   border: 1px solid var(--line);
   margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
   overflow: hidden;
 }
 
 .detail-gallery .main-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

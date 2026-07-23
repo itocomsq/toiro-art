@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>編集ツール | toiro art.</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/editor.css" />
+</head>
+<body>
+
+<header class="editor-header">
+  <div class="editor-header-inner">
+    <h1>toiro art. 編集ツール</h1>
+    <div class="editor-header-actions">
+      <span id="editor-status" class="editor-status"></span>
+      <button type="button" id="btn-save" class="btn-primary">フォルダを選んで保存</button>
+    </div>
+  </div>
+</header>
+
+<main class="editor-main">
+  <div class="editor-notice">
+    <p>
+      このページはお店のサイトを編集するための管理者用ツールです（お客様は使いません）。
+      編集後、右上の「フォルダを選んで保存」から <strong>サイトのフォルダ（このeditor.htmlがある場所）</strong> を選ぶと、
+      画像や商品情報のファイルを直接書き換えます。保存後は忘れずに <code>git add</code> → <code>commit</code> → <code>push</code> してください（手順は README.md 参照）。
+    </p>
+    <p>
+      ※ Chrome または Edge で、<code>http://localhost...</code> のようにサーバー経由で開いている必要があります（詳しくはREADME参照）。
+    </p>
+  </div>
+
+  <section class="editor-section">
+    <div class="editor-section-head">
+      <h2>ヒーロー画像（トップページ先頭のリール）</h2>
+      <button type="button" id="btn-add-hero" class="btn-secondary">＋ 画像を追加</button>
+    </div>
+    <div id="hero-editor" class="hero-editor-grid"></div>
+  </section>
+
+  <section class="editor-section">
+    <div class="editor-section-head">
+      <h2>商品一覧</h2>
+      <button type="button" id="btn-add-product" class="btn-secondary">＋ 商品を追加</button>
+    </div>
+    <div id="product-editor" class="product-editor-list"></div>
+  </section>
+</main>
+
+<template id="tpl-hero-slot">
+  <div class="hero-slot">
+    <div class="hero-slot-thumb">
+      <img />
+    </div>
+    <div class="hero-slot-actions">
+      <label class="btn-secondary btn-small">
+        変更
+        <input type="file" accept="image/*" hidden />
+      </label>
+      <button type="button" class="btn-danger btn-small" data-action="remove-hero">削除</button>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-product-card">
+  <div class="product-card-editor">
+    <div class="pc-head">
+      <span class="pc-head-name"></span>
+      <button type="button" class="btn-danger btn-small" data-action="remove-product">この商品を削除</button>
+    </div>
+    <div class="pc-body">
+      <div class="pc-field">
+        <label>商品ID（URLに使われます。半角英数とハイフンのみ）</label>
+        <input type="text" data-field="id" pattern="[a-z0-9\-]+" />
+      </div>
+      <div class="pc-field">
+        <label>商品名</label>
+        <input type="text" data-field="name" />
+      </div>
+      <div class="pc-field-row">
+        <div class="pc-field">
+          <label>ジャンル</label>
+          <select data-field="category">
+            <option value="wallet">WALLET</option>
+            <option value="stationery">STATIONERY</option>
+            <option value="bag">BAG</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="pc-field">
+          <label>価格（円）</label>
+          <input type="number" data-field="price" min="0" step="1" />
+        </div>
+      </div>
+      <div class="pc-field">
+        <label>サイズ表記</label>
+        <input type="text" data-field="size" />
+      </div>
+      <div class="pc-field">
+        <label>簡易説明</label>
+        <textarea data-field="description" rows="3"></textarea>
+      </div>
+      <div class="pc-field">
+        <label>タグ（カンマ区切り）</label>
+        <input type="text" data-field="tags" />
+      </div>
+      <div class="pc-field">
+        <label>商品写真（1枚目がサムネイル、以降は詳細ページの補足写真）</label>
+        <div class="pc-images"></div>
+        <button type="button" class="btn-secondary btn-small" data-action="add-image">＋ 写真を追加</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-product-image">
+  <div class="pc-image-slot">
+    <div class="pc-image-thumb">
+      <img />
+    </div>
+    <div class="pc-image-actions">
+      <label class="btn-secondary btn-small">
+        変更
+        <input type="file" accept="image/*" hidden />
+      </label>
+      <button type="button" class="btn-danger btn-small" data-action="remove-image">削除</button>
+    </div>
+  </div>
+</template>
+
+<script src="js/hero-data.js"></script>
+<script src="js/products.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>

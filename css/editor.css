@@ -1,0 +1,290 @@
+/* 編集ツール専用のスタイル。style.css の変数（色など）を利用する */
+
+body {
+  background: var(--cream);
+}
+
+.editor-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.editor-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.editor-header-inner h1 {
+  font-size: 1.1rem;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.editor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editor-status {
+  font-size: 0.82rem;
+  color: #6b6153;
+  max-width: 320px;
+}
+
+.editor-status.success {
+  color: #2e6b3e;
+}
+
+.editor-status.error {
+  color: #a3372f;
+}
+
+.editor-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+.editor-notice {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.editor-notice p {
+  margin: 0 0 8px;
+}
+
+.editor-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.editor-notice code {
+  background: var(--cream);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+.editor-section {
+  margin-bottom: 48px;
+}
+
+.editor-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.editor-section-head h2 {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--wood-dark);
+  margin: 0;
+}
+
+/* ボタン共通 */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  font-family: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 9px 18px;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  background: var(--wood);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--wood-dark);
+}
+
+.btn-secondary {
+  background: var(--paper);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  border-color: var(--wood);
+}
+
+.btn-danger {
+  background: var(--paper);
+  border-color: var(--line);
+  color: #a3372f;
+}
+
+.btn-danger:hover {
+  border-color: #a3372f;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+}
+
+/* ヒーロー画像編集 */
+.hero-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.hero-slot {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 10px;
+}
+
+.hero-slot-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background: var(--cream);
+}
+
+.hero-slot-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-slot-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 商品編集 */
+.product-editor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-card-editor {
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.pc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pc-head-name {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.pc-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pc-field label {
+  font-size: 0.78rem;
+  color: #6b6153;
+  letter-spacing: 0.03em;
+}
+
+.pc-field input[type="text"],
+.pc-field input[type="number"],
+.pc-field select,
+.pc-field textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.pc-field textarea {
+  resize: vertical;
+}
+
+.pc-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pc-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pc-image-slot {
+  width: 96px;
+}
+
+.pc-image-thumb {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 6px;
+  background: var(--cream);
+}
+
+.pc-image-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pc-image-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pc-image-actions .btn-secondary,
+.pc-image-actions .btn-danger {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .pc-field-row {
+    grid-template-columns: 1fr;
+  }
+}
